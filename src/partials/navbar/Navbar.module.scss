@@ -1,0 +1,12 @@
+.wrapper {
+    padding: 2rem 0;
+    background: var(--navbar-bg-color);
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 30rem;
+        max-width: 80vw;
+    }
+}

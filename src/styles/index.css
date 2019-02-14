@@ -1,0 +1,20 @@
+* {
+    font-family: var(--font-family);
+}
+
+html {
+    background: var(--white);
+}
+
+body {
+
+}
+
+a {
+    color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-secondary);
+}

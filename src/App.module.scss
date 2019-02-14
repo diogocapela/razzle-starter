@@ -1,0 +1,24 @@
+.main {
+    min-height: 40vh;
+    padding: 0 2rem;
+}
+
+.logo {
+    text-align: center;
+    padding: 2rem 0;
+
+    img {
+        animation: Spin infinite 20s linear;
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+}
+
+@keyframes Spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
