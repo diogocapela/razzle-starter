@@ -1,5 +1,6 @@
 const path = require('path');
 const razzleHeroku = require('razzle-heroku');
+const alias = require('alias.json');
 
 module.exports = {
   modify: (config, { target, dev }, webpack) => {
@@ -20,13 +21,9 @@ module.exports = {
     }
 
     // Add support for import alias
-    config.resolve.alias['@assets'] = path.resolve('./src/assets');
-    config.resolve.alias['@components'] = path.resolve('./src/components');
-    config.resolve.alias['@config'] = path.resolve('./src/config');
-    config.resolve.alias['@pages'] = path.resolve('./src/pages');
-    config.resolve.alias['@partials'] = path.resolve('./src/partials');
-    config.resolve.alias['@redux'] = path.resolve('./src/redux');
-    config.resolve.alias['@styles'] = path.resolve('./src/styles');
+    for(const key in alias) {
+      config.resolve.alias[key] = path.resolve(alias[key]);
+    }
 
     return config;
   }
