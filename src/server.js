@@ -84,23 +84,17 @@ server.get('*', (req, res) => {
   // Set dynamic meta tags for SEO
 
   let locale = 'en';
-  let pageTitle = `${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
   let pageDescription = WEBSITE_DESCRIPTION;
-  let pageThumbnail = '/img/thumbnail.jpg';
   let pageKeywords = WEBSITE_KEYWORDS;
+  let pageThumbnail = '/img/thumbnail.jpg';
+  let pageTitle = `${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
 
-  switch (req.originalUrl) {
-    case '/about':
-      pageTitle = `About | ${pageTitle}`;
-      break;
-    case '/contact':
-      pageTitle = `Contact | ${pageTitle}`;
-      break;
-    case '/articles':
-      pageTitle = `Articles | ${pageTitle}`;
-      break;
-    default:
-  }
+  const pageTitlePerUrl = {
+    '/about': `About | ${pageTitle}`,
+    '/contect': `Contact | ${pageTitle}`,
+    '/articles': `Articles | ${pageTitle}`
+  };
+  pageTitle = pageTitlePerUrl[req.originalUrl] || pageTitle;
 
   const html = `
     <!doctype html>

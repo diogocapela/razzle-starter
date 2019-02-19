@@ -17,6 +17,4 @@ hydrate(
   document.getElementById('root')
 );
 
-if (module.hot) {
-  module.hot.accept();
-}
+module.hot && module.hot.accept();

@@ -1,4 +1,4 @@
-import * as actionTypes from '../actionTypes';
+import * as actionTypes from './actionTypes';
 
 import articlesAPI from '../api/articles';
 

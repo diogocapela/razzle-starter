@@ -1,4 +1,4 @@
-import * as actionTypes from '../actionTypes';
+import * as actionTypes from './actionTypes';
 
 const initialState = {
     result: [],
@@ -35,7 +35,3 @@ const articles = (state = initialState, action = {}) => {
 };
 
 export default articles;
-
-
-
-
