@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 // Global Styles
 import '@styles/variables.css';
@@ -25,6 +26,9 @@ import styles from './App.module.scss';
 
 class App extends Component {
   render() {
+
+    console.log(Cookies.get('locale'));
+
     return (
       <Fragment>
         <Navbar />

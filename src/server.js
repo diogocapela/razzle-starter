@@ -8,6 +8,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { minify } from 'html-minifier';
 import serialize from 'serialize-javascript';
+import cookieParser from 'cookie-parser';
 
 // Redux
 import configureStore from './redux/configureStore';
@@ -26,6 +27,8 @@ const port = process.env.PORT || 3000;
 server.set('port', port);
 server.disable('x-powered-by');
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
+/* cookie-parser */
+server.use(cookieParser());
 /* compression */
 server.use(compression());
 /* helmet */
@@ -39,12 +42,17 @@ const {
   WEBSITE_URL,
   WEBSITE_EMAIL,
   WEBSITE_PHONE,
+  WEBSITE_KEYWORDS,
+  WEBSITE_CITY,
+  WEBSITE_COUNTRY,
   WEBSITE_TWITTER,
   GOOGLE_ANALYTICS,
   GOOGLE_TAG_MANAGER,
 } = process.env;
 
 server.get('*', (req, res) => {
+
+  res.cookie('locale', 'pt', { maxAge: 900000 });
 
   // Redux initial state
 
@@ -79,16 +87,17 @@ server.get('*', (req, res) => {
   let pageTitle = `${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
   let pageDescription = WEBSITE_DESCRIPTION;
   let pageThumbnail = '/img/thumbnail.jpg';
+  let pageKeywords = WEBSITE_KEYWORDS;
 
   switch (req.originalUrl) {
     case '/about':
-      pageTitle = `About | ${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
+      pageTitle = `About | ${pageTitle}`;
       break;
     case '/contact':
-      pageTitle = `Contact | ${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
+      pageTitle = `Contact | ${pageTitle}`;
       break;
     case '/articles':
-      pageTitle = `Articles | ${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
+      pageTitle = `Articles | ${pageTitle}`;
       break;
     default:
   }
@@ -141,10 +150,10 @@ server.get('*', (req, res) => {
 
       <meta property="og:phone_number" content="${WEBSITE_PHONE}" />
 
-      <meta property="og:locality" content="Porto" />
-      <meta property="og:country-name" content="Portugal" />
+      <meta property="og:locality" content="${WEBSITE_CITY}" />
+      <meta property="og:country-name" content="${WEBSITE_COUNTRY}" />
 
-      <meta name="keywords" content="" />
+      <meta name="keywords" content="${pageKeywords}" />
       <meta name="robots" content="index, follow" />
       <meta name="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
