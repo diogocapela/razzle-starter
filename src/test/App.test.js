@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MemoryRouter from 'react-router-dom/MemoryRouter';
+import redux from '@redux/reducers';
 
 describe('<App />', () => {
   test('adds 1 + 2 to equal 3', () => {

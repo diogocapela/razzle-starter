@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
@@ -24,11 +24,7 @@ import logo from '@assets/svg/react.svg';
 // Styles
 import styles from './App.module.scss';
 
-class App extends Component {
-  render() {
-
-    console.log(Cookies.get('locale'));
-
+function App() {
     return (
       <Fragment>
         <Navbar />
@@ -46,8 +42,7 @@ class App extends Component {
         </main>
         <Footer />
       </Fragment>
-    )
-  }
+    );
 }
 
 export default App;

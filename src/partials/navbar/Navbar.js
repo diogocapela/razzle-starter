@@ -1,30 +1,24 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import Link from '@components/link';
 
 import styles from './Navbar.module.scss';
 
-class Navbar extends PureComponent {
-  render() {
+const LINKS = [
+    { to: "/", text: "Home" },
+    { to: "/about", text: "About" },
+    { to: "/contact", text: "Contact" },
+    { to: "/articles", text: "Articles" },
+];
+
+function Navbar() {
     return (
-      <nav className={ styles.wrapper }>
+        <nav className={ styles.wrapper }>
         <ul>
-            <li>
-                <Link to="/">Home</Link>
-            </li>
-            <li>
-                <Link to="/about">About</Link>
-            </li>
-            <li>
-                <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-                <Link to="/articles">Articles</Link>
-            </li>
+            { LINKS.map(({ to, text }) => <Link key={ text } to={ to }>{ text }</Link>) }
         </ul>
-      </nav>
+        </nav>
     );
-  }
 }
 
 Navbar.propTypes = {
