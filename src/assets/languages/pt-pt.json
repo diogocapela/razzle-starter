@@ -1,6 +1,8 @@
 {
-    "home": {
-        "hello-world": "Olá Mundo"
+    "pages": {
+        "home": {
+            "hello-world": "Olá Mundo"
+        }
     },
     "languages": {
         "pt-pt": "Português",

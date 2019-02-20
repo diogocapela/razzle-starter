@@ -1,6 +1,8 @@
 {
-    "home": {
-        "hello-world": "Ciao mondo"
+    "pages": {
+        "home": {
+            "hello-world": "Ciao mondo"
+        }
     },
     "languages": {
         "pt-pt": "Portoghese",
