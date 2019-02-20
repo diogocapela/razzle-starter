@@ -14,9 +14,15 @@ const LINKS = [
 function Navbar() {
     return (
         <nav className={ styles.wrapper }>
-        <ul>
-            { LINKS.map(({ to, text }) => <Link key={ text } to={ to }>{ text }</Link>) }
-        </ul>
+            <ul>
+                { 
+                    LINKS.map(({ to, text }) => (
+                        <li key={ text }>
+                            <Link to={ to }>{ text }</Link>
+                        </li>
+                    ))
+                }
+            </ul>
         </nav>
     );
 }

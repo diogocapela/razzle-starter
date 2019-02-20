@@ -1,0 +1,10 @@
+{
+    "home": {
+        "hello-world": "Olá Mundo"
+    },
+    "languages": {
+        "pt-pt": "Português",
+        "en-us": "Inglês",
+        "it-it": "Italiano"
+    }
+}
