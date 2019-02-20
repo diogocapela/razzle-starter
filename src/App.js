@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Cookies from 'js-cookie';
 
 // Global Styles
 import '@styles/variables.css';
@@ -25,24 +24,24 @@ import logo from '@assets/svg/react.svg';
 import styles from './App.module.scss';
 
 function App() {
-    return (
-      <Fragment>
-        <Navbar />
-        <section className={styles.logo}>
-          <img src={logo} alt="React" />
-        </section>
-        <main className={styles.main}>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/contact" component={ContactPage} />
-            <Route path="/articles/:slug" component={ArticlePage} />
-            <Route path="/articles" component={ArticlesPage} />
-          </Switch>
-        </main>
-        <Footer />
-      </Fragment>
-    );
+  return (
+    <Fragment>
+      <Navbar />
+      <section className={styles.logo}>
+        <img src={logo} alt="React" />
+      </section>
+      <main className={styles.main}>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/contact" component={ContactPage} />
+          <Route path="/articles/:slug" component={ArticlePage} />
+          <Route path="/articles" component={ArticlesPage} />
+        </Switch>
+      </main>
+      <Footer />
+    </Fragment>
+  );
 }
 
 export default App;

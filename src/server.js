@@ -9,6 +9,8 @@ import { renderToString } from 'react-dom/server';
 import { minify } from 'html-minifier';
 import serialize from 'serialize-javascript';
 import cookieParser from 'cookie-parser';
+import fs from 'fs';
+import { promisify } from 'util';
 
 // Redux
 import configureStore from './redux/configureStore';
@@ -48,18 +50,34 @@ const {
   WEBSITE_TWITTER,
   GOOGLE_ANALYTICS,
   GOOGLE_TAG_MANAGER,
+  DEFAULT_SUBFOLDER,
 } = process.env;
 
-server.get('*', (req, res) => {
+server.get('*', async (req, res) => {
 
-  res.cookie('locale', 'pt', { maxAge: 900000 });
+  let subfolder = req.cookies.subfolder;
+
+  if (!subfolder) {
+    res.cookie('subfolder', DEFAULT_SUBFOLDER);
+    subfolder = DEFAULT_SUBFOLDER;
+  }
+
+  const readDir = promisify(fs.readdir);
+  const readFile = promisify(fs.readFile);
+  const language = JSON.parse(await readFile(`src/assets/languages/${subfolder}.json`, 'utf8'));
+  const languageFiles = await readDir(`src/assets/languages`, 'utf8');
+  const languages = languageFiles.map((fileName) => fileName.split('.')[0]);
 
   // Redux initial state
 
   const preloadedState = {
     articles: {
       result: articlesData
-    }
+    },
+    locale: {
+      languages,
+      language,
+    },
   };
 
   // Create a new Redux store instance
@@ -157,8 +175,8 @@ server.get('*', (req, res) => {
 
       ${assets.client.css ? `<link rel="stylesheet" href="${assets.client.css}" />` : ''}
       ${process.env.NODE_ENV === 'production'
-        ? `<script src="${assets.client.js}" defer></script>`
-        : `<script src="${assets.client.js}" defer crossorigin></script>`}
+      ? `<script src="${assets.client.js}" defer></script>`
+      : `<script src="${assets.client.js}" defer crossorigin></script>`}
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS}"></script>
       <script>

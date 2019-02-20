@@ -5,5 +5,7 @@
     "@pages": "./src/pages",
     "@partials": "./src/partials",
     "@redux": "./src/redux",
-    "@styles": "./src/styles"
+    "@styles": "./src/styles",
+    "@redux-locale": "./src/redux/redux-locale",
+    "@redux-articles": "./src/redux/redux-articles"
 }
