@@ -12,12 +12,15 @@ import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import { promisify } from 'util';
 
-// Redux
-import configureStore from './redux/configureStore';
-import articlesData from './redux/api/articles';
-
 // App
 import App from './App';
+
+// Redux
+import configureStore from '@redux/configureStore';
+import articlesData from '@redux/api/articles';
+
+// Cookie Types
+import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
 
 dotenv.config();
 
@@ -58,14 +61,14 @@ server.get('*', async (req, res) => {
   let subfolder = req.cookies.subfolder;
 
   if (!subfolder) {
-    res.cookie('subfolder', DEFAULT_SUBFOLDER);
+    res.cookie(SUBFOLDER_COOKIE, DEFAULT_SUBFOLDER);
     subfolder = DEFAULT_SUBFOLDER;
   }
 
   const readDir = promisify(fs.readdir);
   const readFile = promisify(fs.readFile);
-  const language = JSON.parse(await readFile(`src/assets/languages/${subfolder}.json`, 'utf8'));
-  const languageFiles = await readDir(`src/assets/languages`, 'utf8');
+  const language = JSON.parse(await readFile(`src/redux/api/languages/${subfolder}.json`, 'utf8'));
+  const languageFiles = await readDir(`src/redux/api/languages`, 'utf8');
   const languages = languageFiles.map((fileName) => fileName.split('.')[0]);
 
   // Redux initial state
@@ -101,7 +104,7 @@ server.get('*', async (req, res) => {
 
   // Set dynamic meta tags for SEO
 
-  let locale = 'en';
+  let locale = DEFAULT_SUBFOLDER.substring(0, 2);
   let pageDescription = WEBSITE_DESCRIPTION;
   let pageKeywords = WEBSITE_KEYWORDS;
   let pageThumbnail = '/img/thumbnail.jpg';

@@ -1,5 +1,7 @@
 # react-starter
 
+[![Build Status](https://travis-ci.org/diogocapela/react-starter.svg?branch=master)](https://travis-ci.org/diogocapela/react-starter)
+
 A boilerplate starter for server-side rendered React applications built with [Razzle](https://github.com/jaredpalmer/razzle).
 
 **Demo:** [https://starter-react.herokuapp.com](https://starter-react.herokuapp.com)

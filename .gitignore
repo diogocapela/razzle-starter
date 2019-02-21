@@ -11,16 +11,6 @@ build/
 .vs/
 .vscode/
 
-# macOS
-*.DS_Store
-
-# JetBrains
-.idea/
-
-# Visual Studio
-.vs/
-.vscode/
-
 # Logs
 logs
 *.log
@@ -72,12 +62,6 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
-
-# dotenv environment variables file
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 # next.js build output
 .next

@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 // Global Styles
-import '@styles/variables.css';
-import '@styles/reset.css';
-import '@styles/index.css';
+import '@styles/variables.scss';
+import '@styles/reset.scss';
+import '@styles/index.scss';
 
 // Partials
 import Navbar from '@partials/navbar';
