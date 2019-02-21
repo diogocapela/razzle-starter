@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
@@ -36,7 +36,7 @@ const mapState = ({ locale: { languages } }) => ({
 });
 
 const enhance = compose(
-  translate('home'),
+  translate('pages.home'),
   connect(mapState, mapDispatch),
 );
 
