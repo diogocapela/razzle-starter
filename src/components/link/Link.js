@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as NativeLink } from 'react-router-dom';
+import noop from 'lodash/noop';
 
 function Link({ children, to, title, target, keep, ...remainingProps }) {
     return target === '_blank' ? (
@@ -13,8 +14,10 @@ function Link({ children, to, title, target, keep, ...remainingProps }) {
             { ...remainingProps }>{ children }</a>
     ) : (
         <NativeLink
+            aria-label={ title }
+            title={ title }
             to={ to }
-            onClick={ keep ? undefined : () => window.scrollTo(0,0) }
+            onClick={ keep ? noop : () => window.scrollTo(0,0) }
             { ...remainingProps }>
             { children }
         </NativeLink>

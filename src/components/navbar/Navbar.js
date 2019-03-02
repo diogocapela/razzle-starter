@@ -5,10 +5,10 @@ import Link from '@components/link';
 import styles from './Navbar.module.scss';
 
 const LINKS = [
-    { to: "/", text: "Home" },
-    { to: "/about", text: "About" },
-    { to: "/contact", text: "Contact" },
-    { to: "/articles", text: "Articles" },
+    { to: '/', text: 'Home' },
+    { to: '/about', text: 'About' },
+    { to: '/contact', text: 'Contact' },
+    { to: '/articles', text: 'Articles' },
 ];
 
 function Navbar() {

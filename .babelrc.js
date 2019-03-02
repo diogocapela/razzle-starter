@@ -1,4 +1,4 @@
-const alias = require('./src/config/alias-imports');
+const alias = require('./src/config/importAlias');
 
 module.exports = {
     presets: [require.resolve('@babel/preset-env')],

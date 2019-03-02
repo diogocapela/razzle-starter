@@ -1,7 +1,7 @@
 const path = require('path');
 const razzleHeroku = require('razzle-heroku');
 
-const alias = require('./src/config/alias-imports');
+const alias = require('./src/config/importAlias');
 
 module.exports = {
   modify: (config, { target, dev }, webpack) => {

@@ -58,6 +58,8 @@ const {
 
 server.get('*', async (req, res) => {
 
+  // Redux Locale
+
   let subfolder = req.cookies.subfolder;
 
   if (!subfolder) {
@@ -116,6 +118,8 @@ server.get('*', async (req, res) => {
     '/articles': `Articles | ${pageTitle}`
   };
   pageTitle = pageTitlePerUrl[req.originalUrl] || pageTitle;
+
+  // Build HTML string
 
   const html = `
     <!doctype html>

@@ -6,9 +6,9 @@ import '@styles/variables.scss';
 import '@styles/reset.scss';
 import '@styles/index.scss';
 
-// Partials
-import Navbar from '@partials/navbar';
-import Footer from '@partials/footer';
+// Components
+import Navbar from '@components/navbar';
+import Footer from '@components/footer';
 
 // Pages
 import HomePage from '@pages/home';
