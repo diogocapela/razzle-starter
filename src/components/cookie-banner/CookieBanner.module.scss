@@ -1,0 +1,28 @@
+.wrapper {
+    position: fixed;
+    padding: 2rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    max-height: 25vh;
+    background: lightgrey;
+
+    p {
+        text-align: justify;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+}
+
+.close {
+    margin-top: 1rem;
+    font-weight: bold;
+    background: transparent;
+    padding: 0;
+    border: 0;
+    font-size: 1.4rem;
+}
+
+.close:hover {
+    text-decoration: underline;
+}

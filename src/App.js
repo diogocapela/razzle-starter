@@ -9,6 +9,7 @@ import '@styles/index.scss';
 // Components
 import Navbar from '@components/navbar';
 import Footer from '@components/footer';
+import CookieBanner from '@components/cookie-banner';
 
 // Pages
 import HomePage from '@pages/home';
@@ -40,6 +41,7 @@ function App() {
         </Switch>
       </main>
       <Footer />
+      <CookieBanner />
     </Fragment>
   );
 }
