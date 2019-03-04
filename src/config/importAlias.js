@@ -7,5 +7,6 @@ module.exports = {
     '@redux': './src/redux',
     '@redux-articles': './src/redux/redux-articles',
     '@redux-locale': './src/redux/redux-locale',
+    '@redux-projects': './src/redux/redux-projects',
     '@styles': './src/styles',
 };
