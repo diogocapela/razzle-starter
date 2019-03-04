@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { compose } from 'recompose';
+import translate from '@redux-locale/translate';
 import Link from '@components/link';
 
 import styles from './Articles.module.scss';
 
-function Articles({ articles }) {
+function Articles({ t, articles }) {
     return (
         <main className={ styles.wrapper }>
-            <h1>Blog</h1>
+            <h1>{ t('blog') }</h1>
             { articles.map(({ slug, title }) => (
                 <article key={ slug }>
                     <Link to={ `/blog/${slug}` }>{ title }</Link>
@@ -21,6 +22,7 @@ function Articles({ articles }) {
 
 Articles.propTypes = {
     articles: PropTypes.array,
+    t: PropTypes.func.isRequired,
 };
 
 Articles.defaultProps = {
@@ -33,4 +35,9 @@ const mapStateToProps = (state, props) => {
     };
 };
 
-export default connect(mapStateToProps)(Articles);
+const enhance = compose(
+    translate('pages.blog'),
+    connect(mapStateToProps),
+);
+
+export default enhance(Articles);

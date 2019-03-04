@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Cookies from 'js-cookie';
-
 import { USER_ACCEPTS_COOKIES } from '@config/cookieTypes';
+import translate from '@redux-locale/translate';
 
 import styles from './CookieBanner.module.scss';
 
-function CookieBanner() {
+function CookieBanner({ t }) {
   const [isOpen, setIsOpen] = useState(true);
 
   const shouldHide = Cookies.get(USER_ACCEPTS_COOKIES);
@@ -21,10 +22,14 @@ function CookieBanner() {
 
   return (
     <div className={ styles.wrapper }>
-      <p>This site uses first and third party cookies to provide you with a great user experience, measure audiences and show you personalized ads. By using Airbnb you accept our use of cookies. For more details about cookies and how to manage them, see our Cookie Policy.</p>
-      <button onClick={ handleClose } aria-label="Accept Cookies" className={ styles.close }>Accept Cookies</button>
+      <p>{ t('text') }</p>
+      <button onClick={ handleClose } aria-label="Accept Cookies" className={ styles.close }>{ t('accept-cookies') }</button>
     </div>
   );
 }
 
-export default CookieBanner;
+CookieBanner.propTypes = {
+  t: PropTypes.func.isRequired,
+};
+
+export default translate('components.cookie-banner')(CookieBanner);

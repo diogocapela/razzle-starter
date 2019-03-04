@@ -1,13 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { compose } from 'recompose';
+import translate from '@redux-locale/translate';
 
 import styles from './Contact.module.scss';
 
-function Contact() {
+function Contact({ t }) {
   return (
     <main className={styles.wrapper}>
-      <h1>Contact Page</h1>
+      <h1>{ t('contact') }</h1>
     </main>
   );
 }
 
-export default Contact;
+Contact.propTypes = {
+  t: PropTypes.func.isRequired,
+};
+
+const enhance = compose(
+  translate('pages.contact'),
+);
+
+export default enhance(Contact);

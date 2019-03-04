@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import translate from '@redux-locale/translate';
 
 import styles from './Project.module.scss';
 
@@ -21,6 +23,7 @@ Project.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
+  t: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => {
@@ -34,4 +37,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(Project);
+const enhance = compose(
+  translate('pages.porfolio'),
+  connect(mapStateToProps),
+);
+
+export default enhance(Project);

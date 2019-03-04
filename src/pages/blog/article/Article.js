@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { compose } from 'recompose';
+import translate from '@redux-locale/translate';
 
 import styles from './Article.module.scss';
 
@@ -21,6 +23,7 @@ Article.propTypes = {
   slug: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
+  t: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => {
@@ -34,4 +37,9 @@ const mapStateToProps = (state, props) => {
   };
 };
 
-export default connect(mapStateToProps)(Article);
+const enhance = compose(
+  translate('pages.blog'),
+  connect(mapStateToProps),
+);
+
+export default enhance(Article);

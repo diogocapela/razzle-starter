@@ -1,12 +1,33 @@
 {
     "pages": {
         "home": {
-            "hello-world": "Hello world"
+            "hello-world": "Hello world",
+            "home": "Home"
+        },
+        "about": {
+            "about": "About"
+        },
+        "contact": {
+            "contact": "Contact"
+        },
+        "blog": {
+            "blog": "Blog"
+        },
+        "portfolio": {
+            "portfolio": "Portfolio"
+        }
+    },
+    "components": {
+        "cookie-banner": {
+            "accept-cookies": "Accept Cookies",
+            "text": "This site uses first and third party cookies to provide you with a great user experience, measure audiences and show you personalized ads. By using this site you accept our use of cookies. For more details about cookies and how to manage them, see our Cookie Policy."
+        },
+        "footer": {
+            "all-rights-reserved": "All Rights Reserved"
         }
     },
     "languages": {
-        "pt-PT": "Portuguese",
         "en-US": "English",
-        "it-IT": "Italian"
+        "pt-PT": "Portuguese"
     }
 }
