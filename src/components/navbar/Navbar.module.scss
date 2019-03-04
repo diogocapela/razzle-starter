@@ -1,12 +1,19 @@
 .wrapper {
+    font-size: 1.8rem;
     padding: 2rem 0;
     background: lightgrey;
+    margin-bottom: 2rem;
 
     ul {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         margin: 0 auto;
-        width: 30rem;
+        width: 80rem;
         max-width: 80vw;
+
+        li {
+            padding: 1rem;
+        }
     }
 }

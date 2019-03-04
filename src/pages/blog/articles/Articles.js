@@ -9,10 +9,10 @@ import styles from './Articles.module.scss';
 function Articles({ articles }) {
     return (
         <main className={ styles.wrapper }>
-            <h1>Articles Page</h1>
+            <h1>Blog</h1>
             { articles.map(({ slug, title }) => (
                 <article key={ slug }>
-                    <Link to={ `/articles/${slug}` }>{ title }</Link>
+                    <Link to={ `/blog/${slug}` }>{ title }</Link>
                 </article>
             )) }
         </main>

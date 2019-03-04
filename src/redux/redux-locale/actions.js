@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
 
 export const changeLanguage = (subfolder) => (dispatch) => {
-    const language = require(`@redux/api/languages/${subfolder}.json`);
+    const language = require(`@api/languages/${subfolder}.json`);
 
     Cookies.set(SUBFOLDER_COOKIE, subfolder);
     dispatch({

@@ -17,7 +17,8 @@ import App from './App';
 
 // Redux
 import configureStore from '@redux/configureStore';
-import articlesData from '@redux/api/articles';
+import articlesData from '@api/articles';
+import projectsData from '@api/projects';
 
 // Cookie Types
 import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
@@ -69,15 +70,18 @@ server.get('*', async (req, res) => {
 
   const readDir = promisify(fs.readdir);
   const readFile = promisify(fs.readFile);
-  const language = JSON.parse(await readFile(`src/redux/api/languages/${subfolder}.json`, 'utf8'));
-  const languageFiles = await readDir(`src/redux/api/languages`, 'utf8');
+  const language = JSON.parse(await readFile(`src/api/languages/${subfolder}.json`, 'utf8'));
+  const languageFiles = await readDir(`src/api/languages`, 'utf8');
   const languages = languageFiles.map((fileName) => fileName.split('.')[0]);
 
   // Redux initial state
 
   const preloadedState = {
     articles: {
-      result: articlesData
+      result: articlesData,
+    },
+    projects: {
+      result: projectsData,
     },
     locale: {
       languages,
@@ -114,8 +118,9 @@ server.get('*', async (req, res) => {
 
   const pageTitlePerUrl = {
     '/about': `About | ${pageTitle}`,
-    '/contect': `Contact | ${pageTitle}`,
-    '/articles': `Articles | ${pageTitle}`
+    '/contact': `Contact | ${pageTitle}`,
+    '/blog': `Blog | ${pageTitle}`,
+    '/portfolio': `Portfolio | ${pageTitle}`,
   };
   pageTitle = pageTitlePerUrl[req.originalUrl] || pageTitle;
 

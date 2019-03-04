@@ -4,24 +4,17 @@ import Link from '@components/link';
 
 import styles from './Navbar.module.scss';
 
-const LINKS = [
-    { to: '/', text: 'Home' },
-    { to: '/about', text: 'About' },
-    { to: '/contact', text: 'Contact' },
-    { to: '/articles', text: 'Articles' },
-];
+import { NAVBAR_LINKS } from '@config/settings';
 
 function Navbar() {
     return (
         <nav className={ styles.wrapper }>
             <ul>
-                { 
-                    LINKS.map(({ to, text }) => (
-                        <li key={ text }>
-                            <Link to={ to }>{ text }</Link>
-                        </li>
-                    ))
-                }
+                { NAVBAR_LINKS.map(({ to, text }) => (
+                    <li key={ text }>
+                        <Link to={ to }>{ text }</Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );

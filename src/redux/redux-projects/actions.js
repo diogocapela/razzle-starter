@@ -1,20 +1,20 @@
 import * as actionTypes from './actionTypes';
 
-import articlesAPI from '@api/articles';
+import projectsAPI from '@api/projects';
 
 export const loadProjects = () => (dispatch) => {
   dispatch({
-    type: actionTypes.LOAD_ARTICLES_REQUEST,
+    type: actionTypes.LOAD_PROJECTS_REQUEST,
   });
 
   try {
     dispatch({
-      type: actionTypes.LOAD_ARTICLES_SUCCESS,
-      payload: articlesAPI,
+      type: actionTypes.LOAD_PROJECTS_SUCCESS,
+      payload: projectsAPI,
     })
   } catch (error) {
     dispatch({
-      type: actionTypes.LOAD_ARTICLES_ERROR,
+      type: actionTypes.LOAD_PROJECTS_ERROR,
       payload: error,
     });
   }

@@ -1,4 +1,5 @@
 module.exports = {
+    '@api': './src/api',
     '@assets': './src/assets',
     '@components': './src/components',
     '@config': './src/config',

@@ -7,7 +7,7 @@ import styles from './Article.module.scss';
 function Article({ slug, title, description }) {
   return (
     <main className={styles.wrapper}>
-      <h1>{title} Page</h1>
+      <h1>{title}</h1>
       <ul>
         <li><b>Slug:</b> {slug}</li>
         <li><b>Title:</b> {title}</li>
