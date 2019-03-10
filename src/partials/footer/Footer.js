@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
+import Container from '@components/container';
 
 import styles from './Footer.module.scss';
 
 function Footer({ t }) {
   return (
     <footer className={ styles.wrapper }>
-      <span>{ t('all-rights-reserved') }</span>
+      <Container>
+        <span>{ t('all-rights-reserved') }</span>
+      </Container>
     </footer>
   );
 }
@@ -18,7 +21,7 @@ Footer.propTypes = {
 };
 
 const enhance = compose(
-  translate('components.footer'),
+  translate('partials.footer'),
 );
 
 export default enhance(Footer);

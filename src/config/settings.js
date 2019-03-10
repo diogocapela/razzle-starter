@@ -1,15 +1,18 @@
+
+
 export const BLOG_LINKS = [
-    { to: '/blog', text: 'Blog' },
+    { to: '/blog', slug: 'blog' },
 ];
 
 export const PORTFOLIO_LINKS = [
-    { to: '/portfolio', text: 'Portfolio' },
+    { to: '/portfolio', slug: 'portfolio' },
 ];
 
 export const NAVBAR_LINKS = [
-    { to: '/', text: 'Home' },
-    { to: '/about', text: 'About' },
-    { to: '/contact', text: 'Contact' },
+    { to: '/', slug: 'home' },
+    { to: '/storybook', slug: 'storybook' },
+    { to: '/about', slug: 'about' },
+    { to: '/contact', slug: 'contact' },
     ...BLOG_LINKS,
     ...PORTFOLIO_LINKS,
 ];

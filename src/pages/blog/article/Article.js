@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
+import Container from '@components/container';
 
 import styles from './Article.module.scss';
 
 function Article({ slug, title, description }) {
   return (
-    <main className={styles.wrapper}>
+    <Container className={styles.wrapper}>
       <h1>{title}</h1>
       <ul>
         <li><b>Slug:</b> {slug}</li>
         <li><b>Title:</b> {title}</li>
         <li><b>Description:</b> {description}</li>
       </ul>
-    </main>
+    </Container>
   );
 }
 

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/diogocapela/react-starter#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.4",

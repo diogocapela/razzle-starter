@@ -1,3 +1,6 @@
+@import '@styles/variables.scss';
+@import '@styles/medias.scss';
+
 .wrapper {
     font-size: 1.8rem;
     padding: 2rem 0;
@@ -9,11 +12,17 @@
         flex-wrap: wrap;
         justify-content: space-between;
         margin: 0 auto;
-        width: 80rem;
-        max-width: 80vw;
 
         li {
             padding: 1rem;
+
+            &:first-of-type {
+                padding-left: 0;
+            }
+
+            &:last-of-type {
+                padding-right: 0;
+            }
         }
     }
 }

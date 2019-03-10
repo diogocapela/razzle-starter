@@ -1,3 +1,5 @@
+/* eslint-disable import/first */
+
 import express from 'express';
 import dotenv from 'dotenv';
 import compression from 'compression';
@@ -8,9 +10,12 @@ import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
 import { minify } from 'html-minifier';
 import serialize from 'serialize-javascript';
+import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import { promisify } from 'util';
+
+dotenv.config();
 
 // App
 import App from './App';
@@ -23,8 +28,6 @@ import projectsData from '@api/projects';
 // Cookie Types
 import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
 
-dotenv.config();
-
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
@@ -33,6 +36,9 @@ const port = process.env.PORT || 3000;
 server.set('port', port);
 server.disable('x-powered-by');
 server.use(express.static(process.env.RAZZLE_PUBLIC_DIR));
+/* body-parser */
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
 /* cookie-parser */
 server.use(cookieParser());
 /* compression */

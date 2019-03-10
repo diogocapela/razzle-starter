@@ -4,6 +4,7 @@ module.exports = {
     '@components': './src/components',
     '@config': './src/config',
     '@pages': './src/pages',
+    '@partials': './src/partials',
     '@redux': './src/redux',
     '@redux-articles': './src/redux/redux-articles',
     '@redux-locale': './src/redux/redux-locale',

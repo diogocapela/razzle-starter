@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Cookies from 'js-cookie';
 import { USER_ACCEPTS_COOKIES } from '@config/cookieTypes';
 import translate from '@redux-locale/translate';
+import Button from '@components/button';
+import Container from '@components/container';
 
 import styles from './CookieBanner.module.scss';
 
@@ -21,9 +23,13 @@ function CookieBanner({ t }) {
   }
 
   return (
-    <div className={ styles.wrapper }>
-      <p>{ t('text') }</p>
-      <button onClick={ handleClose } aria-label="Accept Cookies" className={ styles.close }>{ t('accept-cookies') }</button>
+    <div className={styles.wrapper}>
+      <Container>
+        <p>{t('text')}</p>
+        <Button onClick={handleClose} aria-label="Accept Cookies" theme={{ wrapper: styles.close }}>
+          {t('accept-cookies')}
+        </Button>
+      </Container>
     </div>
   );
 }
@@ -32,4 +38,4 @@ CookieBanner.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
-export default translate('components.cookie-banner')(CookieBanner);
+export default translate('partials.cookie-banner')(CookieBanner);

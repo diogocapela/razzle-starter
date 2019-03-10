@@ -17,13 +17,21 @@
             "portfolio": "Portfólio"
         }
     },
-    "components": {
+    "partials": {
         "cookie-banner": {
             "accept-cookies": "Aceitar Cookies",
             "text": "Este site usa cookies próprios e de terceiros para fornecer uma ótima experiência ao usuário, medir o público e mostrar anúncios personalizados. Ao usar o este site, você aceita o uso de cookies. Para mais detalhes sobre cookies e como gerenciá-los, consulte nossa Política de Cookies."
         },
         "footer": {
             "all-rights-reserved": "Todos os Direitos Reservados"
+        },
+        "navbar": {
+            "home": "Início",
+            "about": "Sobre",
+            "contact": "Contacto",
+            "blog": "Blog",
+            "portfolio": "Portefólio",
+            "storybook": "Storybook"
         }
     },
     "languages": {

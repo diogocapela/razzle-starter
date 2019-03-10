@@ -1,10 +1,12 @@
+@import '@styles/variables.scss';
+@import '@styles/medias.scss';
+
 .wrapper {
     position: fixed;
     padding: 2rem;
     bottom: 0;
     right: 0;
     left: 0;
-    max-height: 25vh;
     background: lightgrey;
 
     p {

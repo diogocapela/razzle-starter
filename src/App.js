@@ -6,10 +6,10 @@ import '@styles/variables.scss';
 import '@styles/reset.scss';
 import '@styles/index.scss';
 
-// Components
-import Navbar from '@components/navbar';
-import Footer from '@components/footer';
-import CookieBanner from '@components/cookie-banner';
+// Partials
+import Navbar from '@partials/navbar';
+import Footer from '@partials/footer';
+import CookieBanner from '@partials/cookie-banner';
 
 // Home
 import HomePage from '@pages/home';
@@ -24,8 +24,8 @@ import ArticlePage from '@pages/blog/article';
 import PortfolioPage from '@pages/portfolio/projects';
 import ProjectPage from '@pages/portfolio/project';
 
-// Assets
-import logo from '@assets/svg/react.svg';
+// Storybook
+import StorybookPage from '@pages/storybook';
 
 // Styles
 import styles from './App.module.scss';
@@ -34,9 +34,6 @@ function App() {
   return (
     <Fragment>
       <Navbar />
-      <section className={styles.logo}>
-        <img src={logo} alt="React" />
-      </section>
       <main className={styles.main}>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -46,6 +43,7 @@ function App() {
           <Route path="/blog" component={BlogPage} />
           <Route path="/portfolio/:slug" component={ProjectPage} />
           <Route path="/portfolio" component={PortfolioPage} />
+          <Route path="/storybook" component={StorybookPage} />
         </Switch>
       </main>
       <Footer />

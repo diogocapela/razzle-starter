@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
+import Container from '@components/container';
 import Link from '@components/link';
 
 import styles from './Projects.module.scss';
 
 function Projects({ t, projects }) {
     return (
-        <main className={ styles.wrapper }>
+        <Container className={ styles.wrapper }>
             <h1>{ t('portfolio') }</h1>
             { projects.map(({ slug, title }) => (
                 <article key={ slug }>
                     <Link to={ `/portfolio/${slug}` }>{ title }</Link>
                 </article>
             )) }
-        </main>
+        </Container>
     );
 }
 

@@ -6,12 +6,10 @@ you need to import this file at the top of it:
 
 @import '@styles/medias.scss';
 
-
-Usage example:
-
-@media ($layout-gte-sm) {
+@media ($layout-gte-tablet) {
 
 }
+
 ============================================================================================ */
 
 /* use these to target a specific range */

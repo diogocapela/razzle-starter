@@ -5,21 +5,24 @@ import { compose } from 'recompose';
 import { actions as localeActions } from '@redux-locale';
 import translate from '@redux-locale/translate';
 import { NAVBAR_LINKS } from '@config/settings';
+import Container from '@components/container';
 import Link from '@components/link';
 
 import styles from './Navbar.module.scss';
 
-function Navbar({ languages, changeLanguage }) {
+function Navbar({ t, languages, changeLanguage }) {
     return (
         <nav className={ styles.wrapper }>
-            <ul>
-                { NAVBAR_LINKS.map(({ to, text }) => (
-                    <li key={ text }>
-                        <Link to={ to }>{ text }</Link>
-                    </li>
-                ))}
-                { languages.map((locale) => <button key={ locale } onClick={ () => changeLanguage(locale) }>{ locale }</button>) }
-            </ul>
+            <Container>
+              <ul>
+                  { NAVBAR_LINKS.map(({ to, slug }) => (
+                      <li key={ slug }>
+                          <Link to={ to }>{ t(slug) }</Link>
+                      </li>
+                  ))}
+                  { languages.map((locale) => <button key={ locale } onClick={ () => changeLanguage(locale) }>{ locale }</button>) }
+              </ul>
+            </Container>
         </nav>
     );
 }
@@ -40,7 +43,7 @@ const mapDispatchToProps = {
 };
 
 const enhance = compose(
-    translate('components.navbar'),
+    translate('partials.navbar'),
     connect(mapStateToProps, mapDispatchToProps),
 );
 
