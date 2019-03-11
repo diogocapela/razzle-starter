@@ -1,7 +1,11 @@
+env:
+  - VERBOSE=true
+  - DEFAULT_SUBFOLDER=en-US
+
 language: node_js
 
 node_js:
-  - "node"
+  - "11.10.1"
 
 before_script:
   - npm i

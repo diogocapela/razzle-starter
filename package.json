@@ -4,8 +4,8 @@
   "description": "A boilerplate starter for server-side rendered React applications built with Razzle.",
   "scripts": {
     "clean": "rm -rf node_modules && rm package-lock.json",
-    "dev": "razzle start",
-    "test": "jest test --env=jsdom",
+    "dev": "razzle test",
+    "test": "razzle test",
     "build": "razzle build",
     "start": "NODE_ENV=production node build/server.js",
     "heroku-postbuild": "npm run build"
@@ -27,15 +27,15 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
-    "helmet": "^3.15.0",
+    "helmet": "^3.16.0",
     "html-minifier": "^3.5.21",
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "razzle": "^2.4.1",
     "razzle-heroku": "^3.0.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "recompose": "^0.30.0",
@@ -47,10 +47,8 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
-    "babel-jest": "^24.1.0",
     "babel-plugin-module-resolver": "^3.2.0",
-    "eslint": "^5.13.0",
-    "jest": "^24.1.0",
+    "eslint": "^5.15.1",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"
   }
