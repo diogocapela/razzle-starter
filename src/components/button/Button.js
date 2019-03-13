@@ -22,7 +22,7 @@ function Button({
   const renderButton = () => {
     return (
       <button
-        className={classNames(styles.wrapper, { [fullWidth]: styles.fullWidth }, theme.wrapper)}
+        className={classNames(styles.wrapper, { [styles.fullWidth]: fullWidth }, theme.wrapper)}
         onClick={ onClick }
         disabled={ disabled }
         aria-label={title}>

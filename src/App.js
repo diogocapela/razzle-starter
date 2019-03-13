@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+// Global Reset
+import '@styles/normalize.scss';
+import '@styles/reset.scss';
+
 // Global Styles
 import '@styles/variables.scss';
-import '@styles/reset.scss';
-import '@styles/index.scss';
+import '@styles/theme.scss';
 
 // Partials
 import Navbar from '@partials/navbar';
@@ -23,6 +26,10 @@ import ArticlePage from '@pages/blog/article';
 // Portfolio
 import PortfolioPage from '@pages/portfolio/projects';
 import ProjectPage from '@pages/portfolio/project';
+
+// Legal
+import PrivacyPage from '@pages/legal/privacy';
+import TermsPage from '@pages/legal/terms';
 
 // Storybook
 import StorybookPage from '@pages/storybook';
@@ -43,6 +50,8 @@ function App() {
           <Route path="/blog" component={BlogPage} />
           <Route path="/portfolio/:slug" component={ProjectPage} />
           <Route path="/portfolio" component={PortfolioPage} />
+          <Route path="/legal/privacy" component={PrivacyPage} />
+          <Route path="/legal/terms" component={TermsPage} />
           <Route path="/storybook" component={StorybookPage} />
         </Switch>
       </main>

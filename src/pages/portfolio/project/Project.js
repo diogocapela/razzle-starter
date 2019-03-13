@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
 import Container from '@components/container';
+import PageTitle from '@components/page-title';
 
 import styles from './Project.module.scss';
 
 function Project({ slug, title, description }) {
   return (
     <Container className={styles.wrapper}>
-      <h1>{title}</h1>
+      <PageTitle title={title} />
       <ul>
         <li><b>Slug:</b> {slug}</li>
         <li><b>Title:</b> {title}</li>

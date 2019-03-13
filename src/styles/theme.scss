@@ -1,0 +1,104 @@
+@import '@styles/variables.scss';
+@import '@styles/medias.scss';
+
+::selection {
+    /* placeholder */
+}
+
+* {
+    font-family: var(--font-family);
+
+    &:focus {
+        outline: -webkit-focus-ring-color auto 0.5rem;
+    }
+}
+
+html {
+    background: var(--white);
+}
+
+body {
+    /* placeholder */
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 2.6rem;
+}
+
+h4 {
+    font-size: 2.4rem;
+}
+
+h5 {
+    font-size: 2.2rem;
+}
+
+h6 {
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.6rem;
+    line-height: 1.75;
+}
+
+span {
+    font-size: 1.6rem;
+}
+
+blockquote {
+    font-size: 1.6rem;
+}
+
+ul {
+    font-size: 1.6rem;
+}
+
+ol {
+    font-size: 1.6rem;
+}
+
+button {
+    font-size: 1.6rem;
+}
+
+select {
+    font-size: 1.6rem;
+}
+
+input {
+    font-size: 1.6rem;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0.25rem;
+    border: 0.1rem solid black;
+    padding: 0.75rem;
+}
+
+textarea {
+    font-size: 1.6rem;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0.25rem;
+    border: 0.1rem solid black;
+    padding: 0.75rem;
+}
+
+a {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-secondary);
+}
+

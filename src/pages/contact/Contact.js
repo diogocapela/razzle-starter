@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
 import Container from '@components/container';
+import PageTitle from '@components/page-title';
 
 import styles from './Contact.module.scss';
 
 function Contact({ t }) {
   return (
     <Container className={styles.wrapper}>
-      <h1>{ t('contact') }</h1>
+      <PageTitle title={ t('contact') } />
     </Container>
   );
 }

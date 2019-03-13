@@ -3,19 +3,36 @@
 */
 
 :root {
+    /* Colors
+    ============================================================ */
 
-    /* colors */
+    /* general */
 
     --color-primary: #122222;
     --color-secondary: tomato;
 
-    --navbar-bg-color: #dddddd;
-    --footer-bg-color: white;
-
     --black: black;
     --white: white;
+    
 
-    /* fonts */
+
+
+    /* navbar */
+
+    --navbar-background-color: #6b7c92;
+    --navbar-font-color: white;
+    --navbar-links-color: #f3f3f3;
+    --navbar-links-hover-color: orange;
+
+    /* footer */
+
+    --footer-background-color: #6b7c92;
+    --footer-font-color: white;
+    --footer-links-color: #f3f3f3;
+    --footer-links-hover-color: orange;
+
+    /* Fonts
+    ============================================================ */
 
     --font-family: Arial, Helvetica, sans-serif;
 
@@ -23,9 +40,9 @@
     --font-serif: serif;
     --font-monospace: monospace;
 
-    /* z-index */
+    /* Layers (z-index)
+    ============================================================ */
 
     --modal-layer: 2;
     --navbar-layer: 1;
-
 }

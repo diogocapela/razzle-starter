@@ -5,13 +5,14 @@ import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
 import Container from '@components/container';
 import Link from '@components/link';
+import PageTitle from '@components/page-title';
 
 import styles from './Projects.module.scss';
 
 function Projects({ t, projects }) {
     return (
         <Container className={ styles.wrapper }>
-            <h1>{ t('portfolio') }</h1>
+            <PageTitle title={ t('portfolio') } />
             { projects.map(({ slug, title }) => (
                 <article key={ slug }>
                     <Link to={ `/portfolio/${slug}` }>{ title }</Link>

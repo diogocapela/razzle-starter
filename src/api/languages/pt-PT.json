@@ -15,6 +15,10 @@
         },
         "portfolio": {
             "portfolio": "Portfólio"
+        },
+        "legal": {
+            "terms-of-service": "Termos e Condições",
+            "privacy-policy": "Política de Privacidade"
         }
     },
     "partials": {

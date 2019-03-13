@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import translate from '@redux-locale/translate';
 import Container from '@components/container';
+import PageTitle from '@components/page-title';
 
 import styles from './About.module.scss';
 
 function About({ t }) {
   return (
     <Container className={ styles.wrapper }>
-      <h1>{ t('about') }</h1>
+      <PageTitle title={ t('about') } />
     </Container>
   );
 }

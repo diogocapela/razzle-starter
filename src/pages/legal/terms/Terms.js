@@ -5,22 +5,22 @@ import translate from '@redux-locale/translate';
 import Container from '@components/container';
 import PageTitle from '@components/page-title';
 
-import styles from './Home.module.scss';
+import styles from './Terms.module.scss';
 
-function Home({ t }) {
+function Terms({ t }) {
   return (
     <Container className={ styles.wrapper }>
-      <PageTitle title={ t('hello-world') } />
+      <PageTitle title={ t('terms-of-service') } />
     </Container>
   );
 }
 
-Home.propTypes = {
+Terms.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
 const enhance = compose(
-  translate('pages.home'),
+  translate('pages.legal'),
 );
 
-export default enhance(Home);
+export default enhance(Terms);

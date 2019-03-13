@@ -25,8 +25,26 @@ import configureStore from '@redux/configureStore';
 import articlesData from '@api/articles';
 import projectsData from '@api/projects';
 
-// Cookie Types
+// Config
 import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
+import {
+  DEFAULT_SUBFOLDER,
+  WEBSITE_NAME,
+  WEBSITE_SLOGAN,
+  WEBSITE_DESCRIPTION,
+  WEBSITE_URL,
+  WEBSITE_EMAIL,
+  WEBSITE_PHONE,
+  WEBSITE_KEYWORDS,
+  WEBSITE_CITY,
+  WEBSITE_COUNTRY,
+  WEBSITE_TWITTER,
+} from '@config/settings';
+
+const {
+  GOOGLE_ANALYTICS,
+  GOOGLE_TAG_MANAGER,
+} = process.env;
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -46,22 +64,6 @@ server.use(compression());
 /* helmet */
 server.use(helmet());
 server.use(helmet.noCache());
-
-const {
-  WEBSITE_NAME,
-  WEBSITE_SLOGAN,
-  WEBSITE_DESCRIPTION,
-  WEBSITE_URL,
-  WEBSITE_EMAIL,
-  WEBSITE_PHONE,
-  WEBSITE_KEYWORDS,
-  WEBSITE_CITY,
-  WEBSITE_COUNTRY,
-  WEBSITE_TWITTER,
-  GOOGLE_ANALYTICS,
-  GOOGLE_TAG_MANAGER,
-  DEFAULT_SUBFOLDER,
-} = process.env;
 
 server.get('*', async (req, res) => {
 
