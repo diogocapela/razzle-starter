@@ -14,7 +14,6 @@ import Container from '@components/container';
 import Separator from '@components/separator';
 import Icon from '@components/icon';
 import Link from '@components/link';
-import LocaleLink from '@components/locale-link';
 
 import styles from './Footer.module.scss';
 
