@@ -5,35 +5,55 @@
     background: var(--navbar-background-color);
     color: var(--navbar-font-color);
     font-size: 1.8rem;
-    padding: 2rem 0;
+    padding: 0.5rem 0;
+}
+
+.container {
+    display: flex;
 
     a {
         color: var(--navbar-links-color);
         text-decoration: none;
-
+    
         &:hover {
             color: var(--navbar-links-hover-color);
         }
     }
-
+    
     ul {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 0 auto;
-        padding: 0;
+        align-items: center;
         list-style-type: none;
-
+    
         li {
             padding: 1rem;
-
+    
             &:first-of-type {
                 padding-left: 0;
             }
-
+    
             &:last-of-type {
                 padding-right: 0;
             }
         }
     }
 }
+
+.logo {
+    margin-right: 2rem;
+    width: 50px;
+    height: 50px;
+    animation: AppLogoSpin infinite 20s linear;
+    pointer-events: none;
+}
+
+@keyframes AppLogoSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+

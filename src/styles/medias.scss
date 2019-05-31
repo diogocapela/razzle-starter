@@ -1,27 +1,14 @@
+/**
+* Medias
+*/
 
-/* medias
+$layout-xs-only: 'max-width: 767px';
+$layout-sm-only: 'min-width: 768px) and (max-width: 1099px';
+$layout-md-only: 'min-width: 1100px) and (max-width: 1599px';
+$layout-lg-only: 'min-width: 1600px';
 
-In every module that you need media queries
-you need to import this file at the top of it:
+$layout-gte-sm: 'min-width: 768px';
+$layout-gte-md: 'min-width: 1100px';
 
-@import '@styles/medias.scss';
-
-@media ($layout-gte-tablet) {
-
-}
-
-============================================================================================ */
-
-/* use these to target a specific range */
-
-$layout-mobile: 'max-width: 767px'; /* <= 767px */
-$layout-tablet: 'min-width: 768px) and (max-width: 1099px'; /* >= 768px && <= 1099px */
-$layout-desktop: 'min-width: 1100px'; /* >= 1100px */
-
-/* use these when developing mobile first and wanting to target higher resolutions */
-
-$layout-gte-tablet: 'min-width: 768px'; /* >= 768px */
-
-/* use these when developing desktop first and wanting to target lower resolutions */
-
-$layout-lte-tablet: 'max-width: 1099px'; /* <= 1099px */
+$layout-lte-sm: 'max-width: 1099px';
+$layout-lte-md: 'max-width: 1599px';

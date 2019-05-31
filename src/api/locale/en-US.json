@@ -1,7 +1,7 @@
 {
     "pages": {
         "home": {
-            "hello-world": "Hello world",
+            "hello-world": "Hello World",
             "home": "Home"
         },
         "about": {
@@ -17,8 +17,9 @@
             "portfolio": "Portfolio"
         },
         "legal": {
-            "terms-of-service": "Terms of Service",
-            "privacy-policy": "Privacy Policy"
+            "cookie-policy": "Cookie Policy",
+            "privacy-policy": "Privacy Policy",
+            "terms-and-conditions": "Terms and Conditions"
         }
     },
     "partials": {
@@ -38,7 +39,7 @@
             "storybook": "Storybook"
         }
     },
-    "languages": {
+    "locales": {
         "en-US": "English",
         "pt-PT": "Portuguese"
     }

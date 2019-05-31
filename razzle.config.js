@@ -1,11 +1,12 @@
+/* eslint-disable guard-for-in */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-param-reassign */
 const path = require('path');
 const razzleHeroku = require('razzle-heroku');
-
 const alias = require('./src/config/importAlias');
 
 module.exports = {
   modify: (config, { target, dev }, webpack) => {
-
     // Make it deployable on Heroku
     config = razzleHeroku(config, { target, dev }, webpack);
 
@@ -22,10 +23,10 @@ module.exports = {
     }
 
     // Add support for import alias
-    for(const key in alias) {
+    for (const key in alias) {
       config.resolve.alias[key] = path.resolve(alias[key]);
     }
 
     return config;
-  }
+  },
 };

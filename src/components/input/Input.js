@@ -43,6 +43,7 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   theme: PropTypes.shape({
     wrapper: PropTypes.string,
     label: PropTypes.string,

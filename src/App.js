@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-// Global Reset
+// Reset Styles
 import '@styles/normalize.scss';
 import '@styles/reset.scss';
 
@@ -14,27 +14,19 @@ import Navbar from '@partials/navbar';
 import Footer from '@partials/footer';
 import CookieBanner from '@partials/cookie-banner';
 
-// Home
-import HomePage from '@pages/home';
-import AboutPage from '@pages/about';
-import ContactPage from '@pages/contact';
+// Pages
+import Home from '@pages/home';
+import About from '@pages/about';
+import Contact from '@pages/contact';
+import Blog from '@pages/blog/articles';
+import Article from '@pages/blog/article';
+import Portfolio from '@pages/portfolio/projects';
+import Project from '@pages/portfolio/project';
+import CookiePolicy from '@pages/legal/cookie-policy';
+import PrivacyPolicy from '@pages/legal/privacy-policy';
+import TermsAndConditions from '@pages/legal/terms-and-conditions';
 
-// Blog
-import BlogPage from '@pages/blog/articles';
-import ArticlePage from '@pages/blog/article';
-
-// Portfolio
-import PortfolioPage from '@pages/portfolio/projects';
-import ProjectPage from '@pages/portfolio/project';
-
-// Legal
-import PrivacyPage from '@pages/legal/privacy';
-import TermsPage from '@pages/legal/terms';
-
-// Storybook
-import StorybookPage from '@pages/storybook';
-
-// Styles
+// App Styles
 import styles from './App.module.scss';
 
 function App() {
@@ -43,16 +35,16 @@ function App() {
       <Navbar />
       <main className={styles.main}>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/contact" component={ContactPage} />
-          <Route path="/blog/:slug" component={ArticlePage} />
-          <Route path="/blog" component={BlogPage} />
-          <Route path="/portfolio/:slug" component={ProjectPage} />
-          <Route path="/portfolio" component={PortfolioPage} />
-          <Route path="/legal/privacy" component={PrivacyPage} />
-          <Route path="/legal/terms" component={TermsPage} />
-          <Route path="/storybook" component={StorybookPage} />
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/blog/:slug" component={Article} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/portfolio/:slug" component={Project} />
+          <Route path="/portfolio" component={Portfolio} />
+          <Route path="/legal/cookie-policy" component={CookiePolicy} />
+          <Route path="/legal/privacy-policy" component={PrivacyPolicy} />
+          <Route path="/legal/terms-and-conditions" component={TermsAndConditions} />
         </Switch>
       </main>
       <Footer />

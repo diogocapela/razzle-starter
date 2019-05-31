@@ -5,17 +5,17 @@ import translate from '@redux-locale/translate';
 import Container from '@components/container';
 import PageTitle from '@components/page-title';
 
-import styles from './Privacy.module.scss';
+import styles from './CookiePolicy.module.scss';
 
-function Privacy({ t }) {
+function CookiePolicy({ t }) {
   return (
     <Container className={ styles.wrapper }>
-      <PageTitle title={ t('privacy-policy') } />
+      <PageTitle title={ t('cookie-policy') } />
     </Container>
   );
 }
 
-Privacy.propTypes = {
+CookiePolicy.propTypes = {
   t: PropTypes.func.isRequired,
 };
 
@@ -23,4 +23,4 @@ const enhance = compose(
   translate('pages.legal'),
 );
 
-export default enhance(Privacy);
+export default enhance(CookiePolicy);

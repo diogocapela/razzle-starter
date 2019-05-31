@@ -2,10 +2,10 @@ import * as actionTypes from './actionTypes';
 
 const locale = (state = {}, action = {}) => {
     switch (action.type) {
-        case actionTypes.LOAD_LANGUAGE_REQUEST:
+        case actionTypes.LOAD_LOCALE_REQUEST:
             return {
                 ...state,
-                language: action.language
+                translations: action.translations,
             };
         default:
             return state;

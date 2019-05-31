@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from 'lodash/noop';
 import isString from 'lodash/isString';
-
 import Link from '@components/link';
 
 import styles from './Button.module.scss';
@@ -15,29 +14,26 @@ function Button({
   onClick,
   disabled,
   fullWidth,
+  className,
   theme,
 }) {
   const title = isString(children) ? children : null;
 
-  const renderButton = () => {
-    return (
-      <button
-        className={classNames(styles.wrapper, { [styles.fullWidth]: fullWidth }, theme.wrapper)}
-        onClick={ onClick }
-        disabled={ disabled }
-        aria-label={title}>
-        {children}
-      </button>
-    );
-  }
+  const renderButton = () => (
+    <button
+      className={classNames(styles.wrapper, { [styles.fullWidth]: fullWidth }, theme.wrapper, className)}
+      onClick={onClick}
+      disabled={disabled}
+      aria-label={title}>
+      {children}
+    </button>
+  );
 
-  const renderButtonWithLink = () => {
-      return (
-        <Link to={ to } target={ target } title={ title }>
-          { renderButton() }
-        </Link>
-      )
-  };
+  const renderButtonWithLink = () => (
+    <Link to={to} target={target} title={title} className={className}>
+      {renderButton()}
+    </Link>
+  );
 
   return to ? renderButtonWithLink() : renderButton();
 }
@@ -52,9 +48,10 @@ Button.propTypes = {
   keep: PropTypes.bool,
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
   theme: PropTypes.shape({
     wrapper: PropTypes.string,
-  })
+  }),
 };
 
 Button.defaultProps = {

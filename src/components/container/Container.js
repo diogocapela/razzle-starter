@@ -8,7 +8,7 @@ function Container({ children, className, tag }) {
   return createElement(
     tag,
     { className: classNames(styles.wrapper, className) },
-    [children]
+    [children],
   );
 }
 
@@ -20,6 +20,6 @@ Container.propTypes = {
 
 Container.defaultProps = {
   tag: 'div',
-}
+};
 
 export default Container;

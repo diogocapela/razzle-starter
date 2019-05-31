@@ -1,15 +1,16 @@
-import * as actionTypes from './actionTypes';
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable import/prefer-default-export */
 import Cookies from 'js-cookie';
+import { LOCALE_COOKIE } from '@config/cookieTypes';
+import * as actionTypes from './actionTypes';
 
-// Cookie Types
-import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
+export const changeLanguage = locale => (dispatch) => {
+    const translations = require(`@api/locale/${locale}.json`);
 
-export const changeLanguage = (subfolder) => (dispatch) => {
-    const language = require(`@api/languages/${subfolder}.json`);
-
-    Cookies.set(SUBFOLDER_COOKIE, subfolder);
+    Cookies.set(LOCALE_COOKIE, locale);
     dispatch({
-        type: actionTypes.LOAD_LANGUAGE_REQUEST,
-        language,
+        type: actionTypes.LOAD_LOCALE_REQUEST,
+        translations,
     });
 };

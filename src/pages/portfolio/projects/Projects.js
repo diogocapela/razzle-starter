@@ -31,11 +31,9 @@ Projects.defaultProps = {
     projects: [],
 };
 
-const mapStateToProps = (state, props) => {
-    return {
-        projects: state.projects.result,
-    };
-};
+const mapStateToProps = state => ({
+    projects: state.projects.result,
+});
 
 const enhance = compose(
     translate('pages.portfolio'),

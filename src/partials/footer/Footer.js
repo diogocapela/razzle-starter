@@ -11,11 +11,33 @@ import {
 } from '@config/settings';
 import translate from '@redux-locale/translate';
 import Container from '@components/container';
-import Separator from '@components/separator';
-import Icon from '@components/icon';
 import Link from '@components/link';
 
 import styles from './Footer.module.scss';
+
+const renderLocaleLink = ({ slug, title }) => (
+  <li key={slug} className={styles.link}>
+    <Link title={title} toLocale={slug} keep>
+      {title}
+    </Link>
+  </li>
+);
+
+const renderLink = ({ url, title, target }, index) => (
+  <li key={index} className={styles.link}>
+    <Link to={url} title={title} target={target}>
+      {title}
+    </Link>
+  </li>
+);
+
+const renderIcon = ({ url, title, slug }, index) => (
+  <li key={index}>
+    <Link to={url} title={`${WEBSITE_NAME} on ${title}`} target="_blank">
+
+    </Link>
+  </li>
+);
 
 function Footer({ t }) {
   return (
@@ -23,7 +45,9 @@ function Footer({ t }) {
       <Container>
         <div className={styles.row}>
           <div>
-            <img className={styles.logo} src="/img/logo-light.png" alt={WEBSITE_NAME} />
+            <Link to="/">
+              <img className={styles.logo} src="/img/logo.png" alt={WEBSITE_NAME} />
+            </Link>
             <p>{WEBSITE_DESCRIPTION}</p>
             <ul className={styles.socialIcons}>
               {SOCIAL_LINKS.map(renderIcon)}
@@ -42,7 +66,6 @@ function Footer({ t }) {
             </ul>
           </div>
         </div>
-        <Separator light />
         <div className={styles.row}>
           <span>{`${WEBSITE_NAME} © ${new Date().getFullYear()} ${t('all-rights-reserved')}`}</span>
           <ul className={styles.links}>
@@ -55,36 +78,6 @@ function Footer({ t }) {
       </Container>
     </footer>
   );
-}
-
-function renderLocaleLink({ slug, url, title }, index) {
-  return (
-    <li key={index} className={styles.link}>
-      <Link title={title} toLocale={slug}>
-        {title}
-      </Link>
-    </li>
-  )
-}
-
-function renderLink({ url, title, target }, index) {
-  return (
-    <li key={index} className={styles.link}>
-      <Link to={url} title={title} target={target}>
-        {title}
-      </Link>
-    </li>
-  )
-}
-
-function renderIcon({ url, title, slug }, index) {
-  return (
-    <li key={index}>
-      <Link to={url} title={`${WEBSITE_NAME} on ${title}`} target="_blank">
-        <Icon slug={slug} isBrand />
-      </Link>
-    </li>
-  )
 }
 
 Footer.propTypes = {

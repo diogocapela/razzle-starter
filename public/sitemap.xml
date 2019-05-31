@@ -6,33 +6,18 @@
 	http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 	<url>
-		<loc>https://example.com</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
+		<loc>https://starter-react.herokuapp.com</loc>
+		<lastmod>2019-05-31T22:24:42.504Z</lastmod>
 		<priority>1.00</priority>
 	</url>
 	<url>
-		<loc>https://example.com/about</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
+		<loc>https://starter-react.herokuapp.com/about</loc>
+		<lastmod>2019-05-31T22:24:42.504Z</lastmod>
 		<priority>0.80</priority>
 	</url>
 	<url>
-		<loc>https://example.com/contact</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
-		<priority>0.80</priority>
-	</url>
-	<url>
-		<loc>https://example.com/legal</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
-		<priority>0.80</priority>
-	</url>
-	<url>
-		<loc>https://example.com/privacy</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
-		<priority>0.80</priority>
-	</url>
-	<url>
-		<loc>https://example.com/terms</loc>
-		<lastmod>2019-02-10T18:48:49.223Z</lastmod>
+		<loc>https://starter-react.herokuapp.com/contact</loc>
+		<lastmod>2019-05-31T22:24:42.504Z</lastmod>
 		<priority>0.80</priority>
 	</url>
 

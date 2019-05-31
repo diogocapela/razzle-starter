@@ -16,7 +16,7 @@ function CookieBanner({ t }) {
   const handleClose = () => {
     setIsOpen(false);
     Cookies.set(USER_ACCEPTS_COOKIES, true);
-  }
+  };
 
   if (!isOpen || shouldHide) {
     return null;

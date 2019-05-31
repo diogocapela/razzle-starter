@@ -7,19 +7,30 @@ import noop from 'lodash/noop';
 import isString from 'lodash/isString';
 import { actions as localeActions } from '@redux-locale';
 
-function Link({ children, to, title, onClick, toLocale, changeLanguage, target, keep, ...remainingProps }) {
+function Link({
+    children,
+    to,
+    title,
+    onClick,
+    toLocale,
+    changeLanguage,
+    target,
+    keep,
+    className,
+    ...remainingProps
+}) {
     let validTitle = title;
 
-    if(isString(children) && !title) {
+    if (isString(children) && !title) {
         validTitle = children;
     }
 
     const handleClick = () => {
-        if(!keep) {
-            window.scrollTo(0,0);
+        if (!keep) {
+            window.scrollTo(0, 0);
         }
 
-        if(toLocale) {
+        if (toLocale) {
             changeLanguage(toLocale);
         }
 
@@ -28,37 +39,42 @@ function Link({ children, to, title, onClick, toLocale, changeLanguage, target, 
 
     return target === '_blank' || !to || to.startsWith('mailto:') ? (
         <a
-            aria-label={ validTitle }
-            title={ validTitle }
-            href={ to }
+            aria-label={validTitle}
+            title={validTitle}
+            href={to}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={ handleClick }
-            { ...remainingProps }>{ children }</a>
+            onClick={handleClick}
+            className={className}
+            {...remainingProps}>
+            {children}
+        </a>
     ) : (
-        <NativeLink
-            aria-label={ validTitle }
-            title={ validTitle }
-            to={ to }
-            onClick={ handleClick }
-            { ...remainingProps }>
-            { children }
-        </NativeLink>
-    );
+            <NativeLink
+                aria-label={validTitle}
+                title={validTitle}
+                to={to}
+                onClick={handleClick}
+                className={className}
+                {...remainingProps}>
+                {children}
+            </NativeLink>
+        );
 }
 
 Link.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.element,
-    ]).isRequired,
+    ]),
     to: PropTypes.string,
     title: PropTypes.string,
     onClick: PropTypes.func,
     toLocale: PropTypes.string,
-    changeLanguage: PropTypes.func.isRequired,
+    changeLanguage: PropTypes.func,
     target: PropTypes.string,
     keep: PropTypes.bool,
+    className: PropTypes.string,
 };
 
 Link.defaultProps = {
@@ -67,8 +83,8 @@ Link.defaultProps = {
     keep: false,
 };
 
-const mapStateToProps = (state) => ({
-    languages: state.locale.languages,
+const mapStateToProps = state => ({
+    locales: state.locale.locales,
 });
 
 const mapDispatchToProps = {

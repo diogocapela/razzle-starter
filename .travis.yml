@@ -1,6 +1,5 @@
 env:
   - VERBOSE=true
-  - DEFAULT_SUBFOLDER=en-US
 
 language: node_js
 

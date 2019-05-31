@@ -11,13 +11,13 @@ import styles from './Articles.module.scss';
 
 function Articles({ t, articles }) {
     return (
-        <Container className={ styles.wrapper }>
-            <PageTitle title={ t('blog') } />
-            { articles.map(({ slug, title }) => (
-                <article key={ slug }>
-                    <Link to={ `/blog/${slug}` }>{ title }</Link>
+        <Container className={styles.wrapper}>
+            <PageTitle title={t('blog')} />
+            {articles.map(({ slug, title }) => (
+                <article key={slug}>
+                    <Link to={`/blog/${slug}`}>{title}</Link>
                 </article>
-            )) }
+            ))}
         </Container>
     );
 }
@@ -31,11 +31,9 @@ Articles.defaultProps = {
     articles: [],
 };
 
-const mapStateToProps = (state, props) => {
-    return {
-        articles: state.articles.result,
-    };
-};
+const mapStateToProps = state => ({
+    articles: state.articles.result,
+});
 
 const enhance = compose(
     translate('pages.blog'),

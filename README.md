@@ -1,10 +1,44 @@
 # react-starter
 
-[![Build Status](https://travis-ci.org/diogocapela/react-starter.svg?branch=master)](https://travis-ci.org/diogocapela/react-starter)
+[![Build Status][build-status-img]][build-status-url] [![Dependencies Status][dependencies-status-img]][dependencies-status-url] [![Dev Dependencies Status][dev-dependencies-status-img]][dev-dependencies-status-url]
+
+[build-status-url]:https://travis-ci.org/diogocapela/react-starter
+[build-status-img]:http://img.shields.io/travis/diogocapela/react-starter/master.svg
+[dependencies-status-url]:https://david-dm.org/diogocapela/react-starter
+[dependencies-status-img]:https://img.shields.io/david/diogocapela/react-starter.svg
+[dev-dependencies-status-url]:https://david-dm.org/diogocapela/react-starter?type=dev
+[dev-dependencies-status-img]:https://img.shields.io/david/dev/diogocapela/react-starter.svg
 
 A boilerplate starter for server-side rendered React applications built with [Razzle](https://github.com/jaredpalmer/razzle).
 
-**Demo:** [https://starter-react.herokuapp.com](https://starter-react.herokuapp.com)
+**Live Demo:** [https://starter-react.herokuapp.com](https://starter-react.herokuapp.com)
+
+## Project Structure
+
+```
+├── public
+│   ├── img
+│   ├── humans.txt
+│   ├── manifest.json
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src
+│   ├── api
+│   ├── components
+│   ├── config
+│   ├── pages
+│   ├── partials
+│   ├── redux
+│   ├── styles
+│   ├── test
+│   ├── App.js
+│   ├── client.js
+│   ├── index.js
+│   └── server.js
+├── .env
+├── package.json
+└── razzle.config.js
+```
 
 ## Setup
 
@@ -28,12 +62,6 @@ $ npm run build
 $ npm run start
 ```
 
-## Utilities
-
-- [React Developer Tools Chrome Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-- [Redux DevTools Chrome Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
-
-
 ## Clean
 
 ```bash
@@ -48,6 +76,13 @@ $ npm run clean
 $ npm run test
 ```
 
+## Build Sitemap
+
+```bash
+# Builds a sitemap to /public/sitemap.xml
+$ npm run build-sitemap
+```
+
 ## Deploy
 
 ```bash
@@ -57,6 +92,11 @@ $ npm run build
 # Deploy
 $ git push heroku master
 ```
+
+## Utilities
+
+- [React Developer Tools Chrome Extension](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+- [Redux DevTools Chrome Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
 ## License
 

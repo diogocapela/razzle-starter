@@ -1,14 +1,14 @@
-export const DEFAULT_SUBFOLDER = 'en-US';
+export const DEFAULT_LOCALE = 'en-US';
 
 export const WEBSITE_NAME = 'Website Name';
 export const WEBSITE_SLOGAN = 'Website Slogan Goes Here';
 export const WEBSITE_DESCRIPTION = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-export const WEBSITE_URL = 'https://example.com';
+export const WEBSITE_URL = 'https://starter-react.herokuapp.com';
 export const WEBSITE_EMAIL = 'hello@example.com';
 export const WEBSITE_PHONE = '+351-912-345-678';
 export const WEBSITE_KEYWORDS = 'website, react, dev';
-export const WEBSITE_CITY = '';
-export const WEBSITE_COUNTRY = '';
+export const WEBSITE_CITY = 'Porto';
+export const WEBSITE_COUNTRY = 'Portugal';
 export const WEBSITE_TWITTER = '@username';
 export const WEBSITE_FACEBOOK = 'username';
 
@@ -23,7 +23,6 @@ export const SOCIAL_LINKS = [
 
 export const NAVBAR_LINKS = [
     { url: '/', slug: 'home', title: 'Home' },
-    { url: '/storybook', slug: 'storybook', title: 'Storybook' },
     { url: '/about', slug: 'about', title: 'About' },
     { url: '/portfolio', slug: 'portfolio', title: 'Portfolio' },
     { url: '/blog', slug: 'blog', title: 'Blog' },
@@ -32,7 +31,6 @@ export const NAVBAR_LINKS = [
 
 export const FOOTER_LINKS = [
     { url: '/', slug: 'home', title: 'Home' },
-    { url: '/storybook', slug: 'storybook', title: 'Storybook' },
     { url: '/about', slug: 'about', title: 'About' },
     { url: '/portfolio', slug: 'portfolio', title: 'Portfolio' },
     { url: '/blog', slug: 'blog', title: 'Blog' },
@@ -40,8 +38,9 @@ export const FOOTER_LINKS = [
 ];
 
 export const LEGAL_LINKS = [
-    { url: '/legal/privacy', slug: 'privacy', title: 'Privacy' },
-    { url: '/legal/terms', slug: 'terms', title: 'Terms' },
+    { url: '/legal/privacy-policy', slug: 'privacy-policy', title: 'Privacy' },
+    { url: '/legal/terms-and-conditions', slug: 'terms-and-conditions', title: 'Terms' },
+    { url: '/legal/cookie-policy', slug: 'cookie-policy', title: 'Cookies' },
 ];
 
 export const LOCALE_LINKS = [

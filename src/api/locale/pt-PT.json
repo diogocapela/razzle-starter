@@ -17,8 +17,9 @@
             "portfolio": "Portfólio"
         },
         "legal": {
-            "terms-of-service": "Termos e Condições",
-            "privacy-policy": "Política de Privacidade"
+            "cookie-policy": "Política de Cookies",
+            "privacy-policy": "Política de Privacidade",
+            "terms-and-conditions": "Termos e Condições"
         }
     },
     "partials": {
@@ -38,7 +39,7 @@
             "storybook": "Storybook"
         }
     },
-    "languages": {
+    "locales": {
         "en-US": "Inglês",
         "pt-PT": "Português"
     }

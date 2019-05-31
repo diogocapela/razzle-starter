@@ -30,7 +30,7 @@
         margin-bottom: 2rem;
     }
 
-    @media ($layout-gte-tablet) {
+    @media ($layout-gte-md) {
         display: flex;
         align-items: flex-start;
         justify-content: space-between;

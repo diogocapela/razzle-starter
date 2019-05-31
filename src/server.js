@@ -1,5 +1,6 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable import/order */
 /* eslint-disable import/first */
-
 import express from 'express';
 import dotenv from 'dotenv';
 import compression from 'compression';
@@ -14,21 +15,13 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import { promisify } from 'util';
-
-dotenv.config();
-
-// App
 import App from './App';
-
-// Redux
 import configureStore from '@redux/configureStore';
 import articlesData from '@api/articles';
 import projectsData from '@api/projects';
-
-// Config
-import { SUBFOLDER_COOKIE } from '@config/cookieTypes';
+import { LOCALE_COOKIE } from '@config/cookieTypes';
 import {
-  DEFAULT_SUBFOLDER,
+  DEFAULT_LOCALE,
   WEBSITE_NAME,
   WEBSITE_SLOGAN,
   WEBSITE_DESCRIPTION,
@@ -40,6 +33,8 @@ import {
   WEBSITE_COUNTRY,
   WEBSITE_TWITTER,
 } from '@config/settings';
+
+dotenv.config();
 
 const {
   GOOGLE_ANALYTICS,
@@ -66,24 +61,19 @@ server.use(helmet());
 server.use(helmet.noCache());
 
 server.get('*', async (req, res) => {
-
-  // Redux Locale
-
-  let subfolder = req.cookies.subfolder;
-
-  if (!subfolder) {
-    res.cookie(SUBFOLDER_COOKIE, DEFAULT_SUBFOLDER);
-    subfolder = DEFAULT_SUBFOLDER;
+  // Redux locale
+  let locale = req.cookies[LOCALE_COOKIE];
+  if (!locale) {
+    res.cookie(LOCALE_COOKIE, DEFAULT_LOCALE);
+    locale = DEFAULT_LOCALE;
   }
-
   const readDir = promisify(fs.readdir);
   const readFile = promisify(fs.readFile);
-  const language = JSON.parse(await readFile(`src/api/languages/${subfolder}.json`, 'utf8'));
-  const languageFiles = await readDir(`src/api/languages`, 'utf8');
-  const languages = languageFiles.map((fileName) => fileName.split('.')[0]);
+  const translations = JSON.parse(await readFile(`src/api/locale/${locale}.json`, 'utf8'));
+  const localeFiles = await readDir('src/api/locale', 'utf8');
+  const locales = localeFiles.map(fileName => fileName.split('.')[0]);
 
   // Redux initial state
-
   const preloadedState = {
     articles: {
       result: articlesData,
@@ -92,36 +82,32 @@ server.get('*', async (req, res) => {
       result: projectsData,
     },
     locale: {
-      languages,
-      language,
+      locales,
+      translations,
     },
   };
 
-  // Create a new Redux store instance
-
+  // Create a new redux store instance
   const store = configureStore(preloadedState);
 
   // Render the component to a string
-
   const context = {};
   const markup = renderToString(
     <Provider store={store}>
       <StaticRouter context={context} location={req.url}>
         <App />
       </StaticRouter>
-    </Provider>
+    </Provider>,
   );
 
   // Grab the initial state from our Redux store
-
   const finalState = store.getState();
 
   // Set dynamic meta tags for SEO
-
-  let locale = DEFAULT_SUBFOLDER.substring(0, 2);
-  let pageDescription = WEBSITE_DESCRIPTION;
-  let pageKeywords = WEBSITE_KEYWORDS;
-  let pageThumbnail = '/img/thumbnail.jpg';
+  const lang = DEFAULT_LOCALE.substring(0, 2);
+  const pageDescription = WEBSITE_DESCRIPTION;
+  const pageKeywords = WEBSITE_KEYWORDS;
+  const pageThumbnail = '/img/thumbnail.jpg';
   let pageTitle = `${WEBSITE_NAME} — ${WEBSITE_SLOGAN}`;
 
   const pageTitlePerUrl = {
@@ -133,10 +119,9 @@ server.get('*', async (req, res) => {
   pageTitle = pageTitlePerUrl[req.originalUrl] || pageTitle;
 
   // Build HTML string
-
   const html = `
     <!doctype html>
-    <html lang="${locale}">
+    <html lang="${lang}">
     <head>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -146,7 +131,7 @@ server.get('*', async (req, res) => {
       <link rel="manifest" href="/manifest.json" />
       <link rel="icon" href="/img/favicon.ico" />
 
-      <meta name="language" content="${locale}" />
+      <meta name="language" content="${lang}" />
 
       <title>${pageTitle}</title>
       <meta property="og:title" content="${pageTitle}" />
@@ -242,7 +227,6 @@ server.get('*', async (req, res) => {
       minifyURLs: true,
     }));
   }
-
 });
 
 export default server;
