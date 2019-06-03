@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable import/order */
 /* eslint-disable import/first */
@@ -15,10 +16,20 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import { promisify } from 'util';
+import passport from 'passport';
+import expressSession from 'express-session';
 import App from './App';
 import configureStore from '@redux/configureStore';
 import articlesData from '@api/articles';
 import projectsData from '@api/projects';
+import oauthRouter from '@api/oauth/router';
+import {
+  buildUserFromGoogle,
+  buildUserFromTwitter,
+  buildUserFromFacebook,
+  buildUserFromGithub,
+  buildUserFromBnet,
+} from '@api/oauth/builder';
 import { LOCALE_COOKIE } from '@config/cookieTypes';
 import {
   DEFAULT_LOCALE,
@@ -59,7 +70,27 @@ server.use(compression());
 /* helmet */
 server.use(helmet());
 server.use(helmet.noCache());
+/* express-session */
+/* if you have your node.js behind a proxy and are using secure cookies, you need to set 'trust proxy' in express */
+// app.set('trust proxy', 1)
+const cookieExpiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+server.use(expressSession({
+  secret: process.env.EXPRESS_SESSION_SECRET,
+  resave: false, /* if session must be updated whether or not user made changes (if false the session will only be saved when a user made changes) */
+  saveUninitialized: false, /* if true, it creates cookies for every visitor (even logged-out ones) */
+  cookie: {
+    secure: false, /* secure cookies require an https-enabled website */
+    expires: cookieExpiryDate,
+  },
+}));
+/* passport */
+server.use(passport.initialize());
+server.use(passport.session());
 
+// OAuth Routes
+server.use('/oauth', oauthRouter);
+
+// Rest
 server.get('*', async (req, res) => {
   // Redux locale
   let locale = req.cookies[LOCALE_COOKIE];
@@ -73,17 +104,46 @@ server.get('*', async (req, res) => {
   const localeFiles = await readDir('src/api/locale', 'utf8');
   const locales = localeFiles.map(fileName => fileName.split('.')[0]);
 
+  // Get Logged User
+  let authenticatedUser = {};
+
+  if (req.user) {
+    switch (req.user.provider) {
+      case 'google':
+        authenticatedUser = buildUserFromGoogle(req.user);
+        break;
+      case 'twitter':
+        authenticatedUser = buildUserFromTwitter(req.user);
+        break;
+      case 'facebook':
+        authenticatedUser = buildUserFromFacebook(req.user);
+        break;
+      case 'github':
+        authenticatedUser = buildUserFromGithub(req.user);
+        break;
+      case 'bnet':
+        authenticatedUser = buildUserFromBnet(req.user);
+        break;
+      default:
+        authenticatedUser = {};
+    }
+  }
+
   // Redux initial state
   const preloadedState = {
     articles: {
       result: articlesData,
     },
-    projects: {
-      result: projectsData,
-    },
     locale: {
       locales,
       translations,
+    },
+    oauth: {
+      user: authenticatedUser,
+      isAuthenticated: req.isAuthenticated(),
+    },
+    projects: {
+      result: projectsData,
     },
   };
 

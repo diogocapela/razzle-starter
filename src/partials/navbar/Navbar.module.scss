@@ -1,5 +1,6 @@
 @import '@styles/variables.scss';
 @import '@styles/medias.scss';
+@import '@styles/keyframes.scss';
 
 .wrapper {
     background: var(--navbar-background-color);
@@ -43,17 +44,9 @@
     margin-right: 2rem;
     width: 50px;
     height: 50px;
-    animation: AppLogoSpin infinite 20s linear;
+    animation: Spin infinite 20s linear;
     pointer-events: none;
 }
 
-@keyframes AppLogoSpin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
   
 

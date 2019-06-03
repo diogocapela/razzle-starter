@@ -1,5 +1,8 @@
 {
     "pages": {
+        "auth": {
+            "login": "Login"
+        },
         "home": {
             "hello-world": "Olá Mundo",
             "home": "Início"
@@ -12,6 +15,9 @@
         },
         "blog": {
             "blog": "Blog"
+        },
+        "profile": {
+            "profile": "Perfil"
         },
         "portfolio": {
             "portfolio": "Portfólio"
@@ -36,7 +42,9 @@
             "contact": "Contacto",
             "blog": "Blog",
             "portfolio": "Portefólio",
-            "storybook": "Storybook"
+            "storybook": "Storybook",
+            "login": "Login",
+            "profile": "Perfil"
         }
     },
     "locales": {

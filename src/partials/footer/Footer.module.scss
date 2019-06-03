@@ -1,5 +1,6 @@
-@import "@styles/variables.scss";
-@import "@styles/medias.scss";
+@import '@styles/variables.scss';
+@import '@styles/medias.scss';
+@import '@styles/keyframes.scss';
 
 .wrapper {
     background: var(--footer-background-color);
@@ -22,6 +23,7 @@
     height: 10rem;
     max-width: 100%;
     margin-bottom: 2rem;
+    animation: Spin infinite 20s linear;
 }
 
 .row {

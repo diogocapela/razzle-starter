@@ -8,6 +8,8 @@ module.exports = {
     '@redux': './src/redux',
     '@redux-articles': './src/redux/redux-articles',
     '@redux-locale': './src/redux/redux-locale',
+    '@redux-oauth': './src/redux/redux-oauth',
     '@redux-projects': './src/redux/redux-projects',
+    '@socket': './src/socket',
     '@styles': './src/styles',
 };

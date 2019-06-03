@@ -1,10 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable global-require */
 import http from 'http';
+import socketIO from 'socket.io';
 
 let app = require('./server').default;
 
 const server = http.createServer(app);
+const io = socketIO(server);
+app.set('io', io);
 let currentApp = app;
 
 server.listen(app.get('port'), (error) => {
