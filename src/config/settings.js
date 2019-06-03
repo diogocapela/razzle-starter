@@ -47,3 +47,8 @@ export const LOCALE_LINKS = [
     { url: null, slug: 'en-US', title: 'English' },
     { url: null, slug: 'pt-PT', title: 'Português' },
 ];
+
+const developmentOAuthEndpoint = 'http://localhost:3000/oauth';
+const productionOAuthEndpoint = 'https://starter-react.herokuapp.com/oauth';
+
+export const oauthEndpoint = process.env.NODE_ENV === 'production' ? productionOAuthEndpoint : developmentOAuthEndpoint;

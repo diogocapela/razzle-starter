@@ -23,13 +23,7 @@ import configureStore from '@redux/configureStore';
 import articlesData from '@api/articles';
 import projectsData from '@api/projects';
 import oauthRouter from '@api/oauth/router';
-import {
-  buildUserFromGoogle,
-  buildUserFromTwitter,
-  buildUserFromFacebook,
-  buildUserFromGithub,
-  buildUserFromBnet,
-} from '@api/oauth/builder';
+import getUser from '@api/oauth/getUser';
 import { LOCALE_COOKIE } from '@config/cookieTypes';
 import {
   DEFAULT_LOCALE,
@@ -105,29 +99,7 @@ server.get('*', async (req, res) => {
   const locales = localeFiles.map(fileName => fileName.split('.')[0]);
 
   // Get Logged User
-  let authenticatedUser = {};
-
-  if (req.user) {
-    switch (req.user.provider) {
-      case 'google':
-        authenticatedUser = buildUserFromGoogle(req.user);
-        break;
-      case 'twitter':
-        authenticatedUser = buildUserFromTwitter(req.user);
-        break;
-      case 'facebook':
-        authenticatedUser = buildUserFromFacebook(req.user);
-        break;
-      case 'github':
-        authenticatedUser = buildUserFromGithub(req.user);
-        break;
-      case 'bnet':
-        authenticatedUser = buildUserFromBnet(req.user);
-        break;
-      default:
-        authenticatedUser = {};
-    }
-  }
+  const authenticatedUser = getUser(req);
 
   // Redux initial state
   const preloadedState = {

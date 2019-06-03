@@ -13,15 +13,21 @@ function Login({ t }) {
   return (
     <Container className={styles.wrapper}>
       <PageTitle title={ t('login') } />
-      <OAuthLogin socket={socket} provider="google" />
-      <br />
-      <OAuthLogin socket={socket} provider="twitter" />
+      <OAuthLogin socket={socket} provider="bnet" />
       <br />
       <OAuthLogin socket={socket} provider="facebook" />
       <br />
       <OAuthLogin socket={socket} provider="github" />
       <br />
-      <OAuthLogin socket={socket} provider="bnet" />
+      <OAuthLogin socket={socket} provider="google" />
+      <br />
+      <OAuthLogin socket={socket} provider="instagram" />
+      <br />
+      <OAuthLogin socket={socket} provider="linkedin" />
+      <br />
+      <OAuthLogin socket={socket} provider="pinterest" />
+      <br />
+      <OAuthLogin socket={socket} provider="twitter" />
     </Container>
   );
 }

@@ -40,6 +40,17 @@ A boilerplate starter for server-side rendered React applications built with [Ra
 └── razzle.config.js
 ```
 
+## OAuth Providers
+
+- Battle<span />.net - https://develop.battle.net/access/clients
+- Facebook
+- GitHub
+- Google - https://console.cloud.google.com/apis/credentials
+- Instagram
+- LinkedIn
+- Pinterest
+- Twitter - https://developer.twitter.com/en/apps
+
 ## Setup
 
 ```bash

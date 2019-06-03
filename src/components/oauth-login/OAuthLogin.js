@@ -3,22 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
-import GoogleIcon from 'mdi-react/GoogleIcon';
-import TwitterIcon from 'mdi-react/TwitterIcon';
-import FacebookIcon from 'mdi-react/FacebookIcon';
-import GithubIcon from 'mdi-react/GithubBoxIcon';
 import BnetIcon from 'mdi-react/BattlenetIcon';
+import FacebookIcon from 'mdi-react/FacebookIcon';
+import GithubIcon from 'mdi-react/GithubCircleIcon';
+import GoogleIcon from 'mdi-react/GoogleIcon';
+import InstagramIcon from 'mdi-react/InstagramIcon';
+import LinkedinIcon from 'mdi-react/LinkedinIcon';
+import PinterestIcon from 'mdi-react/PinterestIcon';
+import TwitterIcon from 'mdi-react/TwitterIcon';
 import { actions as oauthActions } from '@redux-oauth';
 import Button from '@components/button';
-
-const API_URL = 'http://localhost:3000/oauth';
+import { oauthEndpoint as API_URL } from '@config/settings';
 
 const PROVIDERS = {
-    google: {
-        title: 'Google',
-    },
-    twitter: {
-        title: 'Twitter',
+    bnet: {
+        title: 'Battle.net',
     },
     facebook: {
         title: 'Facebook',
@@ -26,23 +25,41 @@ const PROVIDERS = {
     github: {
         title: 'GitHub',
     },
-    bnet: {
-        title: 'Battle.net',
+    google: {
+        title: 'Google',
+    },
+    instagram: {
+        title: 'Instagram',
+    },
+    linkedin: {
+        title: 'LinkedIn',
+    },
+    pinterest: {
+        title: 'Pinterest',
+    },
+    twitter: {
+        title: 'Twitter',
     },
 };
 
 const renderIcon = (provider) => {
     switch (provider) {
-        case 'google':
-            return <GoogleIcon />;
-        case 'twitter':
-            return <TwitterIcon />;
+        case 'bnet':
+            return <BnetIcon />;
         case 'facebook':
             return <FacebookIcon />;
         case 'github':
             return <GithubIcon />;
-        case 'bnet':
-            return <BnetIcon />;
+        case 'google':
+            return <GoogleIcon />;
+        case 'instagram':
+            return <InstagramIcon />;
+        case 'linkedin':
+            return <LinkedinIcon />;
+        case 'pinterest':
+            return <PinterestIcon />;
+        case 'twitter':
+            return <TwitterIcon />;
         default:
             return null;
     }

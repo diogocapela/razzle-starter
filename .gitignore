@@ -1,6 +1,9 @@
 node_modules/
 build/
 
+# Environment Variables
+.env
+
 # macOS
 *.DS_Store
 
