@@ -1,13 +1,13 @@
-# react-starter
+# razzle-starter
 
 [![Build Status][build-status-img]][build-status-url] [![Dependencies Status][dependencies-status-img]][dependencies-status-url] [![Dev Dependencies Status][dev-dependencies-status-img]][dev-dependencies-status-url]
 
-[build-status-url]:https://travis-ci.org/diogocapela/react-starter
-[build-status-img]:http://img.shields.io/travis/diogocapela/react-starter/master.svg
-[dependencies-status-url]:https://david-dm.org/diogocapela/react-starter
-[dependencies-status-img]:https://img.shields.io/david/diogocapela/react-starter.svg
-[dev-dependencies-status-url]:https://david-dm.org/diogocapela/react-starter?type=dev
-[dev-dependencies-status-img]:https://img.shields.io/david/dev/diogocapela/react-starter.svg
+[build-status-url]:https://travis-ci.org/diogocapela/razzle-starter
+[build-status-img]:http://img.shields.io/travis/diogocapela/razzle-starter/master.svg
+[dependencies-status-url]:https://david-dm.org/diogocapela/razzle-starter
+[dependencies-status-img]:https://img.shields.io/david/diogocapela/razzle-starter.svg
+[dev-dependencies-status-url]:https://david-dm.org/diogocapela/razzle-starter?type=dev
+[dev-dependencies-status-img]:https://img.shields.io/david/dev/diogocapela/razzle-starter.svg
 
 A boilerplate starter for server-side rendered React applications built with [Razzle](https://github.com/jaredpalmer/razzle).
 
@@ -55,10 +55,10 @@ A boilerplate starter for server-side rendered React applications built with [Ra
 
 ```bash
 # Get the latest snapshot
-$ git clone https://github.com/diogocapela/react-starter.git
+$ git clone https://github.com/diogocapela/razzle-starter.git
 
 # Change directory
-$ cd react-starter
+$ cd razzle-starter
 
 # Install all the dependencies
 $ npm i

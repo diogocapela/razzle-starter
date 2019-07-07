@@ -1,5 +1,5 @@
 {
-  "name": "react-starter",
+  "name": "razzle-starter",
   "version": "0.0.1",
   "description": "A boilerplate starter for server-side rendered React applications built with Razzle.",
   "scripts": {
